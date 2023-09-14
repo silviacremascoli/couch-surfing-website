@@ -1,0 +1,19 @@
+.nav-bar {
+  width: 100%;
+  position: sticky;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 12%) 0 1px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    font-size: 50px;
+    margin: 5px 20px 5px 30px;
+    color: #E5AC20;
+  }
+
+  .user-container {
+    margin: 5px 30px 5px 20px;
+  }
+}

@@ -1,4 +1,4 @@
-const reviewTotalDisplay = document.querySelector('#reviews')
+const reviewTotalDisplay = document.querySelector('#reviews') as HTMLElement
 
 const reviews = [
     {
@@ -20,3 +20,10 @@ const reviews = [
         date: '27-03-2021'
     },
 ]
+
+// returns the total amount of reviews and assigns the value to #reviews
+function totalReviews (value: number) {
+    reviewTotalDisplay.innerHTML = value.toString();
+}
+
+totalReviews(reviews.length);
