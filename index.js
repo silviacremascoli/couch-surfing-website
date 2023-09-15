@@ -30,7 +30,9 @@ function totalReviews(value, reviewer, loyal) {
 }
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 var you = {
-    userName: 'Silvia',
+    firstName: 'Silvia',
+    lastName: 'Cremascoli',
+    age: 32,
     isReturning: true,
 };
 function populateUser(isReturning, userName) {
@@ -41,4 +43,5 @@ function populateUser(isReturning, userName) {
     }
     userNameDisplay.innerHTML = userName;
 }
-populateUser(you.isReturning, you.userName);
+populateUser(you.isReturning, you.firstName);
+var isOpen;
