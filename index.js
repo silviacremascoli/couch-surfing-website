@@ -20,7 +20,25 @@ var reviews = [
     },
 ];
 // returns the total amount of reviews and assigns the value to #reviews
-function totalReviews(value) {
-    reviewTotalDisplay.innerHTML = value.toString();
+function totalReviews(value, reviewer, loyal) {
+    var star = function () {
+        if (loyal) {
+            return "\uD83C\uDF1F";
+        }
+    };
+    reviewTotalDisplay.innerHTML = "Total reviews: ".concat(value.toString(), " | last reviewed by ").concat(reviewer, " ").concat(star());
 }
-totalReviews(reviews.length);
+totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+var you = {
+    userName: 'Silvia',
+    isReturning: true,
+};
+function populateUser(isReturning, userName) {
+    var returningUserDisplay = document.querySelector("#returning-user");
+    var userNameDisplay = document.querySelector("#user");
+    if (isReturning) {
+        returningUserDisplay.innerHTML = 'back';
+    }
+    userNameDisplay.innerHTML = userName;
+}
+populateUser(you.isReturning, you.userName);

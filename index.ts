@@ -22,8 +22,30 @@ const reviews = [
 ]
 
 // returns the total amount of reviews and assigns the value to #reviews
-function totalReviews (value: number) {
-    reviewTotalDisplay.innerHTML = value.toString();
+function totalReviews(value: number, reviewer: string, loyal: boolean) {
+    const star = () => {
+        if (loyal) {
+            return `🌟`;
+        }
+    }
+    reviewTotalDisplay.innerHTML = `Total reviews: ${value.toString()} | last reviewed by ${reviewer} ${star()}`;
 }
 
-totalReviews(reviews.length);
+totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+
+const you = {
+    userName: 'Silvia',
+    isReturning: true,
+}
+
+
+function populateUser(isReturning: boolean, userName: string ) {
+    const returningUserDisplay = document.querySelector("#returning-user") as HTMLElement
+    const userNameDisplay = document.querySelector("#user") as HTMLElement
+    if (isReturning){
+        returningUserDisplay.innerHTML = 'back'
+    }
+    userNameDisplay.innerHTML = userName
+}
+
+populateUser(you.isReturning, you.userName)
