@@ -34,6 +34,7 @@ var you = {
     lastName: 'Cremascoli',
     age: 32,
     isReturning: true,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
 function populateUser(isReturning, userName) {
     var returningUserDisplay = document.querySelector("#returning-user");
