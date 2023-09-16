@@ -1,4 +1,7 @@
-var reviewTotalDisplay = document.querySelector('#reviews');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var functions_1 = require("./functions");
+var isOpen;
 var reviews = [
     {
         name: 'Sheia',
@@ -19,16 +22,6 @@ var reviews = [
         date: '27-03-2021'
     },
 ];
-// returns the total amount of reviews and assigns the value to #reviews
-function totalReviews(value, reviewer, loyal) {
-    var star = function () {
-        if (loyal) {
-            return "\uD83C\uDF1F";
-        }
-    };
-    reviewTotalDisplay.innerHTML = "Total reviews: ".concat(value.toString(), " | last reviewed by ").concat(reviewer, " ").concat(star());
-}
-totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 var you = {
     firstName: 'Silvia',
     lastName: 'Cremascoli',
@@ -36,13 +29,5 @@ var you = {
     isReturning: true,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
-function populateUser(isReturning, userName) {
-    var returningUserDisplay = document.querySelector("#returning-user");
-    var userNameDisplay = document.querySelector("#user");
-    if (isReturning) {
-        returningUserDisplay.innerHTML = 'back';
-    }
-    userNameDisplay.innerHTML = userName;
-}
-populateUser(you.isReturning, you.firstName);
-var isOpen;
+(0, functions_1.totalReviews)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+(0, functions_1.populateUser)(you.isReturning, you.firstName);
