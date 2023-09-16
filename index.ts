@@ -1,6 +1,11 @@
 const reviewTotalDisplay = document.querySelector('#reviews') as HTMLElement
 
-const reviews = [
+const reviews: {
+    name: string;
+    stars: number;
+    loyaltyUser: boolean;
+    date: string
+}[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -37,12 +42,14 @@ const you: {
     firstName: string;
     lastName: string;
     age: number;
-    isReturning: boolean
+    isReturning: boolean;
+    stayedAt: string[]
 } = {
     firstName: 'Silvia',
     lastName: 'Cremascoli',
     age: 32,
     isReturning: true,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
 
