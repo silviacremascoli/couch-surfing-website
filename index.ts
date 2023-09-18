@@ -1,4 +1,6 @@
-import { totalReviews, populateUser } from './functions';
+export {};
+
+import { totalReviews, populateUser } from './functions.js';
 
 let isOpen: boolean;
 

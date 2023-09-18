@@ -1,8 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var functions_1 = require("./functions");
-var isOpen;
-var reviews = [
+import { totalReviews, populateUser } from './functions.js';
+let isOpen;
+const reviews = [
     {
         name: 'Sheia',
         stars: 5,
@@ -22,12 +20,12 @@ var reviews = [
         date: '27-03-2021'
     },
 ];
-var you = {
+const you = {
     firstName: 'Silvia',
     lastName: 'Cremascoli',
     age: 32,
     isReturning: true,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
-(0, functions_1.totalReviews)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
-(0, functions_1.populateUser)(you.isReturning, you.firstName);
+totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+populateUser(you.isReturning, you.firstName);

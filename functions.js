@@ -1,24 +1,19 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.populateUser = exports.totalReviews = void 0;
-var reviewTotalDisplay = document.querySelector('#reviews');
-var returningUserDisplay = document.querySelector("#returning-user");
-var userNameDisplay = document.querySelector("#user");
 // returns the total amount of reviews and assigns the value to #reviews
-function totalReviews(value, reviewer, loyal) {
-    var star = function () {
+export function totalReviews(value, reviewer, loyal) {
+    const reviewTotalDisplay = document.querySelector("#reviews");
+    const star = () => {
         if (loyal) {
-            return "\uD83C\uDF1F";
+            return `🌟`;
         }
     };
-    reviewTotalDisplay.innerHTML = "Total reviews: ".concat(value.toString(), " | last reviewed by ").concat(reviewer, " ").concat(star());
+    reviewTotalDisplay.innerHTML = `Total reviews: ${value.toString()} | last reviewed by ${reviewer} ${star()}`;
 }
-exports.totalReviews = totalReviews;
 // displays the name of the user in the navbar
-function populateUser(isReturning, userName) {
+export function populateUser(isReturning, userName) {
+    const returningUserDisplay = document.querySelector("#returning-user");
+    const userNameDisplay = document.querySelector("#user");
     if (isReturning) {
-        returningUserDisplay.innerHTML = 'back';
+        returningUserDisplay.innerHTML = "back";
     }
     userNameDisplay.innerHTML = userName;
 }
-exports.populateUser = populateUser;
