@@ -1,5 +1,3 @@
-const propertyContainer = document.querySelector(".properties") as HTMLElement;
-
 import { totalReviews, populateUser } from './functions.js';
 
 let isOpen: boolean;
@@ -54,7 +52,7 @@ const properties: {
         postcode: number;
         country: string;
     };
-    contact: string;
+    contact: [number, string];
     isAvailable: boolean
 }[] = [
     {
@@ -67,7 +65,7 @@ const properties: {
             postcode: 5811,
             country: "Nederlands"
         },
-        contact: "thedutchflat@gmail.com",
+        contact: [+31714962843, "thedutchflat@gmail.com"],
         isAvailable: true
     },
     {
@@ -80,7 +78,7 @@ const properties: {
             postcode: 49994,
             country: "France"
         },
-        contact: "thefrenchcottage@gmail.com",
+        contact: [+33655578770, "thefrenchcottage@gmail.com"],
         isAvailable: false
     },
     {
@@ -93,14 +91,15 @@ const properties: {
             postcode: 80585,
             country: "Italy"
         },
-        contact: "theitalianvilla@gmail.com",
+        contact: [+39063104903, "theitalianvilla@gmail.com"],
         isAvailable: true
     },
 ]
 
-
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName)
+
+const propertyContainer = document.querySelector(".properties") as HTMLElement;
 
 for(let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
@@ -111,5 +110,6 @@ for(let i = 0; i < properties.length; i++) {
     image.setAttribute('src', properties[i].image)
     // adds the image to the previously created card element
     card.appendChild(image)
+    // adds the card element to the properties container
     propertyContainer.appendChild(card)
 }
