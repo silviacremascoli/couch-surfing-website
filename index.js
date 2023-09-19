@@ -83,3 +83,6 @@ for (let i = 0; i < properties.length; i++) {
     // adds the card element to the properties container
     propertyContainer.appendChild(card);
 }
+let currentLocation = ["Milan", "16:30", 21];
+const footer = document.querySelector("footer");
+footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}°`;
