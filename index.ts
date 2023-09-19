@@ -1,4 +1,4 @@
-export {};
+const propertyContainer = document.querySelector(".properties") as HTMLElement;
 
 import { totalReviews, populateUser } from './functions.js';
 
@@ -44,6 +44,72 @@ const you: {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
+const properties: {
+    image: string;
+    title: string;
+    price: number;
+    location: {
+        address: string,
+        city: string;
+        postcode: number;
+        country: string;
+    };
+    contact: string;
+    isAvailable: boolean
+}[] = [
+    {
+        image: "./images/dutch-flat.png",
+        title: "Dutch Flat",
+        price: 50,
+        location: {
+            address: "541 Finn straat",
+            city: "Grootwoude",
+            postcode: 5811,
+            country: "Nederlands"
+        },
+        contact: "thedutchflat@gmail.com",
+        isAvailable: true
+    },
+    {
+        image: "./images/french-cottage.png",
+        title: "French Cottage",
+        price: 50,
+        location: {
+            address: "7078 Marcel des Saussaies",
+            city: "Claudienfort",
+            postcode: 49994,
+            country: "France"
+        },
+        contact: "thefrenchcottage@gmail.com",
+        isAvailable: false
+    },
+    {
+        image: "./images/italian-villa.png",
+        title: "Italian Villa",
+        price: 50,
+        location: {
+            address: "Via Veronica 72",
+            city: "Prato",
+            postcode: 80585,
+            country: "Italy"
+        },
+        contact: "theitalianvilla@gmail.com",
+        isAvailable: true
+    },
+]
+
 
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName)
+
+for(let i = 0; i < properties.length; i++) {
+    const card = document.createElement('div')
+    card.classList.add('card');
+    card.innerHTML = properties[i].title;
+    const image = document.createElement('img');
+    // adds the src attribute to the image element
+    image.setAttribute('src', properties[i].image)
+    // adds the image to the previously created card element
+    card.appendChild(image)
+    propertyContainer.appendChild(card)
+}
