@@ -2,16 +2,18 @@
 .nav-bar {
   width: 100%;
   position: sticky;
-  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .nav-bar .logo {
-  font-size: 50px;
-  margin: 5px 20px 5px 30px;
-  color: #E5AC20;
+  margin: 10px 30px 10px 30px;
+  height: 50px;
+  width: 100px;
+  background-size: 100px;
+  background-image: url("../images/sofa-logo.png");
+  background-repeat: no-repeat;
 }
 .nav-bar .user-container {
   margin: 5px 30px 5px 20px;
