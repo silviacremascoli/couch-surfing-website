@@ -1,4 +1,4 @@
-import {LoyaltyUsers} from "./enums.js";
+import {LoyaltyUsers, Permissions} from "./enums.js";
 
 // returns the total amount of reviews and assigns the value to #reviews
 export function totalReviews(value: number, reviewer: string, loyal: LoyaltyUsers) {
@@ -8,7 +8,7 @@ export function totalReviews(value: number, reviewer: string, loyal: LoyaltyUser
       return `🌟`;
     }
   };
-  reviewTotalDisplay.innerHTML = `Total reviews: ${value.toString()} | last reviewed by ${reviewer} ${star()}`;
+  reviewTotalDisplay.innerHTML = `${value.toString()} Review${makePlural(value)} | last reviewed by ${reviewer} ${star()}`;
 }
 
 // displays the name of the user in the navbar
@@ -21,4 +21,18 @@ export function populateUser(isReturning: boolean, userName: string) {
     returningUserDisplay.innerHTML = "back";
   }
   userNameDisplay.innerHTML = userName;
+}
+
+export function showDetails(value: (boolean | Permissions ), element : HTMLDivElement, price: number) {
+  if (value) {
+    const priceDisplay = document.createElement('div')
+    priceDisplay.innerHTML = price.toString() + '€/night'
+    element.appendChild(priceDisplay)
+  }
+}
+
+export function makePlural(value: number) : string {
+  if (value > 1 || value == 0 ) {
+    return 's'
+  } else return ''
 }

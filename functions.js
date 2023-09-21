@@ -7,7 +7,7 @@ export function totalReviews(value, reviewer, loyal) {
             return `🌟`;
         }
     };
-    reviewTotalDisplay.innerHTML = `Total reviews: ${value.toString()} | last reviewed by ${reviewer} ${star()}`;
+    reviewTotalDisplay.innerHTML = `${value.toString()} Review${makeMultiple(value)} | last reviewed by ${reviewer} ${star()}`;
 }
 // displays the name of the user in the navbar
 export function populateUser(isReturning, userName) {
@@ -17,4 +17,18 @@ export function populateUser(isReturning, userName) {
         returningUserDisplay.innerHTML = "back";
     }
     userNameDisplay.innerHTML = userName;
+}
+export function showDetails(value, element, price) {
+    if (value) {
+        const priceDisplay = document.createElement('div');
+        priceDisplay.innerHTML = price.toString() + '€/night';
+        element.appendChild(priceDisplay);
+    }
+}
+export function makeMultiple(value) {
+    if (value > 1 || value == 0) {
+        return 's';
+    }
+    else
+        return '';
 }

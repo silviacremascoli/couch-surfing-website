@@ -1,4 +1,4 @@
-import { populateUser, totalReviews } from './functions.js';
+import { populateUser, totalReviews, showDetails } from './functions.js';
 import { LoyaltyUsers, Permissions } from './enums.js';
 let isLoggedIn;
 const reviews = [
@@ -34,7 +34,7 @@ const properties = [
     {
         image: "./images/dutch-flat.png",
         title: "Dutch Flat",
-        price: 30,
+        price: 34,
         location: {
             address: "541 Finn straat",
             city: "Grootwoude",
@@ -47,7 +47,7 @@ const properties = [
     {
         image: "./images/french-cottage.png",
         title: "French Cottage",
-        price: 25,
+        price: 23,
         location: {
             address: "7078 Marcel des Saussaies",
             city: "Claudienfort",
@@ -74,14 +74,6 @@ const properties = [
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
 const propertyContainer = document.querySelector(".properties");
-isLoggedIn = true;
-function showDetails(authorityStatus, element, price) {
-    if (authorityStatus) {
-        const priceDisplay = document.createElement('div');
-        priceDisplay.innerHTML = price.toString() + '€/night';
-        element.appendChild(priceDisplay);
-    }
-}
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div');
     card.classList.add('card');
