@@ -1,5 +1,6 @@
 import { populateUser, totalReviews } from './functions.js';
-import { Permissions, LoyaltyUsers } from './enums.js';
+import { LoyaltyUsers, Permissions } from './enums.js';
+let isLoggedIn;
 const reviews = [
     {
         name: 'Sheia',
@@ -17,7 +18,8 @@ const reviews = [
         name: 'Omar',
         stars: 4,
         loyaltyUser: LoyaltyUsers.SILVER_USER,
-        date: '27-03-2021'
+        date: '27-03-2021',
+        description: "Very nice place! Just a bit dirty"
     },
 ];
 const you = {
@@ -45,7 +47,7 @@ const properties = [
     {
         image: "./images/french-cottage.png",
         title: "French Cottage",
-        price: 50,
+        price: 40,
         location: {
             address: "7078 Marcel des Saussaies",
             city: "Claudienfort",
@@ -58,7 +60,7 @@ const properties = [
     {
         image: "./images/italian-villa.png",
         title: "Italian Villa",
-        price: 50,
+        price: 70,
         location: {
             address: "Via Veronica 72",
             city: "Prato",
@@ -72,6 +74,15 @@ const properties = [
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
 const propertyContainer = document.querySelector(".properties");
+let authorityStatus;
+isLoggedIn = true;
+function showDetails(authorityStatus, element, price) {
+    if (authorityStatus) {
+        const priceDisplay = document.createElement('div');
+        priceDisplay.innerHTML = price.toString() + '€/night';
+        element.appendChild(priceDisplay);
+    }
+}
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -83,6 +94,8 @@ for (let i = 0; i < properties.length; i++) {
     card.appendChild(image);
     // adds the card element to the properties container
     propertyContainer.appendChild(card);
+    // calls the showDetails function and adds the price to the card
+    showDetails(you.permissions, card, properties[i].price);
 }
 let currentLocation = ["Milan", "16:30", 21];
 const footer = document.querySelector("footer");

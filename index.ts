@@ -1,12 +1,20 @@
 import {populateUser, totalReviews} from './functions.js';
-import {Permissions, LoyaltyUsers} from './enums.js';
+import {LoyaltyUsers, Permissions} from './enums.js';
 
-const reviews: {
+let isLoggedIn: boolean
+
+const reviews: ({
     name: string;
     stars: number;
     loyaltyUser: LoyaltyUsers;
     date: string;
-}[] = [
+} | {
+    name: string;
+    stars: number;
+    loyaltyUser: LoyaltyUsers;
+    date: string;
+    description: string
+})[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -23,7 +31,8 @@ const reviews: {
         name: 'Omar',
         stars: 4,
         loyaltyUser: LoyaltyUsers.SILVER_USER,
-        date: '27-03-2021'
+        date: '27-03-2021',
+        description: "Very nice place! Just a bit dirty"
     },
 ]
 
@@ -72,7 +81,7 @@ const properties: {
     {
         image: "./images/french-cottage.png",
         title: "French Cottage",
-        price: 50,
+        price: 40,
         location: {
             address: "7078 Marcel des Saussaies",
             city: "Claudienfort",
@@ -85,7 +94,7 @@ const properties: {
     {
         image: "./images/italian-villa.png",
         title: "Italian Villa",
-        price: 50,
+        price: 70,
         location: {
             address: "Via Veronica 72",
             city: "Prato",
@@ -102,6 +111,16 @@ populateUser(you.isReturning, you.firstName)
 
 const propertyContainer = document.querySelector(".properties") as HTMLElement;
 
+isLoggedIn = true
+
+function showDetails(authorityStatus: (boolean | Permissions ), element : HTMLDivElement, price: number) {
+    if (authorityStatus) {
+        const priceDisplay = document.createElement('div')
+        priceDisplay.innerHTML = price.toString() + '€/night'
+        element.appendChild(priceDisplay)
+    }
+}
+
 for(let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
     card.classList.add('card');
@@ -113,6 +132,8 @@ for(let i = 0; i < properties.length; i++) {
     card.appendChild(image)
     // adds the card element to the properties container
     propertyContainer.appendChild(card)
+    // calls the showDetails function and adds the price to the card
+    showDetails(you.permissions, card, properties[i].price)
 }
 
 let currentLocation: [string, string, number] = ["Milan", "16:30", 21];

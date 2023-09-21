@@ -34,7 +34,7 @@
 }
 .card img {
   border-radius: 10px;
-  padding-top: 7px;
+  padding: 7px 0 7px 0;
 }
 
 footer {
