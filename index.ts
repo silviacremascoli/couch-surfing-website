@@ -1,5 +1,6 @@
 import {populateUser, totalReviews} from './functions.js';
 import {LoyaltyUsers, Permissions} from './enums.js';
+import {Price, Country} from "./types.js";
 
 let isLoggedIn: boolean
 
@@ -55,12 +56,12 @@ const you: {
 const properties: {
     image: string;
     title: string;
-    price: number;
+    price: Price;
     location: {
         address: string,
         city: string;
         postcode: number;
-        country: string;
+        country: Country;
     };
     contact: [number, string];
     isAvailable: boolean
@@ -68,7 +69,7 @@ const properties: {
     {
         image: "./images/dutch-flat.png",
         title: "Dutch Flat",
-        price: 50,
+        price: 30,
         location: {
             address: "541 Finn straat",
             city: "Grootwoude",
@@ -81,7 +82,7 @@ const properties: {
     {
         image: "./images/french-cottage.png",
         title: "French Cottage",
-        price: 40,
+        price: 25,
         location: {
             address: "7078 Marcel des Saussaies",
             city: "Claudienfort",
@@ -94,7 +95,7 @@ const properties: {
     {
         image: "./images/italian-villa.png",
         title: "Italian Villa",
-        price: 70,
+        price: 45,
         location: {
             address: "Via Veronica 72",
             city: "Prato",

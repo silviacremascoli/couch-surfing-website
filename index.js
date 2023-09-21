@@ -34,7 +34,7 @@ const properties = [
     {
         image: "./images/dutch-flat.png",
         title: "Dutch Flat",
-        price: 50,
+        price: 30,
         location: {
             address: "541 Finn straat",
             city: "Grootwoude",
@@ -47,7 +47,7 @@ const properties = [
     {
         image: "./images/french-cottage.png",
         title: "French Cottage",
-        price: 40,
+        price: 25,
         location: {
             address: "7078 Marcel des Saussaies",
             city: "Claudienfort",
@@ -60,7 +60,7 @@ const properties = [
     {
         image: "./images/italian-villa.png",
         title: "Italian Villa",
-        price: 70,
+        price: 45,
         location: {
             address: "Via Veronica 72",
             city: "Prato",
@@ -74,7 +74,6 @@ const properties = [
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
 const propertyContainer = document.querySelector(".properties");
-let authorityStatus;
 isLoggedIn = true;
 function showDetails(authorityStatus, element, price) {
     if (authorityStatus) {
