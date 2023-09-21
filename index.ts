@@ -1,4 +1,4 @@
-import {populateUser, totalReviews, showDetails} from './functions.js';
+import {populateUser, totalReviews, showDetails, getTopTwoReviews} from './functions.js';
 import {LoyaltyUsers, Permissions} from './enums.js';
 import {Country} from "./types.js";
 
@@ -126,6 +126,33 @@ for(let i = 0; i < properties.length; i++) {
     // calls the showDetails function and adds the price to the card
     showDetails(you.permissions, card, properties[i].price)
 }
+
+const reviewContainer = document.querySelector('.reviews') as HTMLDivElement
+const container = document.querySelector('.container') as HTMLDivElement
+
+let count = 0
+function addReviews(array: ({ name: string; stars: number; loyaltyUser: LoyaltyUsers; date: string } | {
+    name: string;
+    stars: number;
+    loyaltyUser: LoyaltyUsers;
+    date: string;
+    description: string
+})[]) : void {
+    if (!count) {
+        count++
+        const topTwo = getTopTwoReviews(array)
+        for (let i = 0; i < topTwo.length; i++) {
+            const card = document.createElement('div')
+            card.classList.add('review-card')
+            card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name
+            reviewContainer.appendChild(card)
+        }
+        container.removeChild(button)
+    }
+}
+
+const button = document.querySelector('button') as HTMLButtonElement
+button.addEventListener('click', () => addReviews(reviews))
 
 let currentLocation: [string, string, number] = ["Milan", "16:30", 21];
 const footer = document.querySelector("footer") as HTMLElement;

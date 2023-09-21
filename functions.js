@@ -7,7 +7,7 @@ export function totalReviews(value, reviewer, loyal) {
             return `🌟`;
         }
     };
-    reviewTotalDisplay.innerHTML = `${value.toString()} Review${makeMultiple(value)} | last reviewed by ${reviewer} ${star()}`;
+    reviewTotalDisplay.innerHTML = `${value.toString()} Review${makePlural(value)} | last reviewed by ${reviewer} ${star()}`;
 }
 // displays the name of the user in the navbar
 export function populateUser(isReturning, userName) {
@@ -25,10 +25,14 @@ export function showDetails(value, element, price) {
         element.appendChild(priceDisplay);
     }
 }
-export function makeMultiple(value) {
+export function makePlural(value) {
     if (value > 1 || value == 0) {
         return 's';
     }
     else
         return '';
+}
+export function getTopTwoReviews(reviews) {
+    const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
+    return sortedReviews.slice(0, 2);
 }

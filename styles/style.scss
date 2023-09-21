@@ -18,3 +18,25 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+button {
+  border: 1px solid lightcoral;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.review-card {
+  padding: 10px;
+}
+
+.reviews {
+  display: flex;
+  padding: 10px;
+}
+
+.break {
+  height: 1px;
+  width: 70%;
+  background-color: lightcoral;
+  margin-bottom: 20px;
+}
