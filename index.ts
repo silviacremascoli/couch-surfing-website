@@ -139,6 +139,7 @@ function addReviews(array: ({ name: string; stars: number; loyaltyUser: LoyaltyU
     description: string
 })[]) : void {
     if (!count) {
+        // increments count by 1, so that this block only executes the first time addReviews is called
         count++
         const topTwo = getTopTwoReviews(array)
         for (let i = 0; i < topTwo.length; i++) {

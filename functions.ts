@@ -40,12 +40,16 @@ export function makePlural(value: number) : string {
 export function getTopTwoReviews(reviews : {
   name: string;
   stars: number;
+  loyaltyUser: LoyaltyUsers;
   date: string;
 }[]) : {
   name: string;
   stars: number;
+  loyaltyUser: LoyaltyUsers;
   date: string;
 }[]  {
+  // sorts the reviews array in descending order based on the stars property, so that the reviews with higher star ratings will come first in the sorted array
   const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
+  // returns the first two reviews from the sorted array
   return sortedReviews.slice(0,2)
 }
