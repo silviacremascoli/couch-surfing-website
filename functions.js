@@ -1,8 +1,9 @@
 // returns the total amount of reviews and assigns the value to #reviews
+import { LoyaltyUsers } from "./enums";
 export function totalReviews(value, reviewer, loyal) {
     const reviewTotalDisplay = document.querySelector("#reviews");
     const star = () => {
-        if (loyal) {
+        if (loyal === LoyaltyUsers.GOLD_USER) {
             return `🌟`;
         }
     };

@@ -1,29 +1,30 @@
-import { totalReviews, populateUser } from './functions.js';
+import {populateUser, totalReviews} from './functions.js';
+import {Permissions, LoyaltyUsers} from './enums.js';
 
 let isOpen: boolean;
 
 const reviews: {
     name: string;
     stars: number;
-    loyaltyUser: boolean;
+    loyaltyUser: LoyaltyUsers;
     date: string;
 }[] = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUsers.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyUsers.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUsers.SILVER_USER,
         date: '27-03-2021'
     },
 ]
@@ -32,12 +33,14 @@ const you: {
     firstName: string;
     lastName: string;
     age: number;
+    permissions: Permissions;
     isReturning: boolean;
     stayedAt: string[]
 } = {
     firstName: 'Silvia',
     lastName: 'Cremascoli',
     age: 32,
+    permissions: Permissions.ADMIN,
     isReturning: true,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
@@ -116,4 +119,4 @@ for(let i = 0; i < properties.length; i++) {
 
 let currentLocation: [string, string, number] = ["Milan", "16:30", 21];
 const footer = document.querySelector("footer") as HTMLElement;
-footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}°`;
+footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}°<sup>C</sup>`;
