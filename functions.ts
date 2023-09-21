@@ -1,6 +1,6 @@
-// returns the total amount of reviews and assigns the value to #reviews
-import {LoyaltyUsers} from "./enums";
+import {LoyaltyUsers} from "./enums.js";
 
+// returns the total amount of reviews and assigns the value to #reviews
 export function totalReviews(value: number, reviewer: string, loyal: LoyaltyUsers) {
   const reviewTotalDisplay = document.querySelector("#reviews") as HTMLElement;
   const star = () => {

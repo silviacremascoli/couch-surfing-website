@@ -1,8 +1,6 @@
 import {populateUser, totalReviews} from './functions.js';
 import {Permissions, LoyaltyUsers} from './enums.js';
 
-let isOpen: boolean;
-
 const reviews: {
     name: string;
     stars: number;
@@ -119,4 +117,4 @@ for(let i = 0; i < properties.length; i++) {
 
 let currentLocation: [string, string, number] = ["Milan", "16:30", 21];
 const footer = document.querySelector("footer") as HTMLElement;
-footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}°<sup>C</sup>`;
+footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}°<small>C</small>`;
