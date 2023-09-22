@@ -19,9 +19,9 @@ export function populateUser(isReturning: boolean, userName: string) {
   ) as HTMLElement;
   const userNameDisplay = document.querySelector("#user") as HTMLElement;
   if (isReturning) {
-    returningUserDisplay.innerHTML = "back";
+    returningUserDisplay.innerHTML = "back, ";
   }
-  userNameDisplay.innerHTML = userName;
+  userNameDisplay.innerHTML = `${userName}!`;
 }
 
 export function showDetails(value: (boolean | Permissions ), element : HTMLDivElement, price: number) {

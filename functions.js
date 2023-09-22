@@ -14,9 +14,9 @@ export function populateUser(isReturning, userName) {
     const returningUserDisplay = document.querySelector("#returning-user");
     const userNameDisplay = document.querySelector("#user");
     if (isReturning) {
-        returningUserDisplay.innerHTML = "back";
+        returningUserDisplay.innerHTML = "back, ";
     }
-    userNameDisplay.innerHTML = userName;
+    userNameDisplay.innerHTML = `${userName}!`;
 }
 export function showDetails(value, element, price) {
     if (value) {
