@@ -1,4 +1,5 @@
 import {LoyaltyUsers, Permissions} from "./enums.js";
+import {Review} from "./interfaces.js";
 
 // returns the total amount of reviews and assigns the value to #reviews
 export function totalReviews(value: number, reviewer: string, loyal: LoyaltyUsers) {
@@ -37,17 +38,8 @@ export function makePlural(value: number) : string {
   } else return ''
 }
 
-export function getTopTwoReviews(reviews : {
-  name: string;
-  stars: number;
-  loyaltyUser: LoyaltyUsers;
-  date: string;
-}[]) : {
-  name: string;
-  stars: number;
-  loyaltyUser: LoyaltyUsers;
-  date: string;
-}[]  {
+export function getTopTwoReviews(reviews :
+  Review[]) : Review[]  {
   // sorts the reviews array in descending order based on the stars property, so that the reviews with higher star ratings will come first in the sorted array
   const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
   // returns the first two reviews from the sorted array

@@ -1,21 +1,11 @@
 import {populateUser, totalReviews, showDetails, getTopTwoReviews} from './functions.js';
 import {LoyaltyUsers, Permissions} from './enums.js';
 import {Country} from "./types.js";
+import {Review} from "./interfaces.js";
 
 let isLoggedIn: boolean
 
-const reviews: ({
-    name: string;
-    stars: number;
-    loyaltyUser: LoyaltyUsers;
-    date: string;
-} | {
-    name: string;
-    stars: number;
-    loyaltyUser: LoyaltyUsers;
-    date: string;
-    description: string
-})[] = [
+const reviews: Review[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -32,8 +22,7 @@ const reviews: ({
         name: 'Omar',
         stars: 4,
         loyaltyUser: LoyaltyUsers.SILVER_USER,
-        date: '27-03-2021',
-        description: "Very nice place! Just a bit dirty"
+        date: '27-03-2021'
     },
 ]
 
@@ -131,13 +120,7 @@ const reviewContainer = document.querySelector('.reviews') as HTMLDivElement
 const container = document.querySelector('.container') as HTMLDivElement
 
 let count = 0
-function addReviews(array: ({ name: string; stars: number; loyaltyUser: LoyaltyUsers; date: string } | {
-    name: string;
-    stars: number;
-    loyaltyUser: LoyaltyUsers;
-    date: string;
-    description: string
-})[]) : void {
+function addReviews(array: Review[]) : void {
     if (!count) {
         // increments count by 1, so that this block only executes the first time addReviews is called
         count++

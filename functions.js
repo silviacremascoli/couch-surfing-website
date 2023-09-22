@@ -33,6 +33,8 @@ export function makePlural(value) {
         return '';
 }
 export function getTopTwoReviews(reviews) {
+    // sorts the reviews array in descending order based on the stars property, so that the reviews with higher star ratings will come first in the sorted array
     const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
+    // returns the first two reviews from the sorted array
     return sortedReviews.slice(0, 2);
 }

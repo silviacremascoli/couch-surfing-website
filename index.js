@@ -18,8 +18,7 @@ const reviews = [
         name: 'Omar',
         stars: 4,
         loyaltyUser: LoyaltyUsers.SILVER_USER,
-        date: '27-03-2021',
-        description: "Very nice place! Just a bit dirty"
+        date: '27-03-2021'
     },
 ];
 const you = {
@@ -93,6 +92,7 @@ const container = document.querySelector('.container');
 let count = 0;
 function addReviews(array) {
     if (!count) {
+        // increments count by 1, so that this block only executes the first time addReviews is called
         count++;
         const topTwo = getTopTwoReviews(array);
         for (let i = 0; i < topTwo.length; i++) {
