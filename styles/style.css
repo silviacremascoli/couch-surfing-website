@@ -70,6 +70,13 @@ button {
   padding: 5px 10px 5px 10px;
 }
 
+.main-image img {
+  max-width: 1200px;
+  max-height: 800px;
+  border-radius: 15px;
+  margin: 0 0 20px 0;
+}
+
 .review-card {
   padding: 10px;
 }

@@ -1,7 +1,7 @@
 import {populateUser, totalReviews, showDetails, getTopTwoReviews} from './functions.js';
 import {LoyaltyUsers, Permissions} from './enums.js';
-import {Country} from "./types.js";
-import {Review} from "./interfaces.js";
+import {Price, Country} from "./types.js";
+import {Review, Property, CurrentUser} from "./interfaces.js";
 
 let isLoggedIn: boolean
 
@@ -26,14 +26,7 @@ const reviews: Review[] = [
     },
 ]
 
-const you: {
-    firstName: string;
-    lastName: string;
-    age: number;
-    permissions: Permissions;
-    isReturning: boolean;
-    stayedAt: string[]
-} = {
+const you: CurrentUser = {
     firstName: 'Silvia',
     lastName: 'Cremascoli',
     age: 32,
@@ -42,23 +35,11 @@ const you: {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-const properties: {
-    image: string;
-    title: string;
-    price: number;
-    location: {
-        address: string,
-        city: string;
-        postcode: number;
-        country: Country;
-    };
-    contact: [number, string];
-    isAvailable: boolean
-}[] = [
+const properties: Property[] = [
     {
         image: "./images/dutch-flat.png",
         title: "Dutch Flat",
-        price: 34,
+        price: 30,
         location: {
             address: "541 Finn straat",
             city: "Grootwoude",
@@ -71,7 +52,7 @@ const properties: {
     {
         image: "./images/french-cottage.png",
         title: "French Cottage",
-        price: 23,
+        price: 25,
         location: {
             address: "7078 Marcel des Saussaies",
             city: "Claudienfort",
@@ -94,6 +75,21 @@ const properties: {
         contact: [+39063104903, "theitalianvilla@gmail.com"],
         isAvailable: true
     },
+    /*
+    {
+        image: "./images/spanish-beach-house.png",
+        title: "Spanish Beach House",
+        price: 45,
+        location: {
+            address: "Comandante Izarduy 57",
+            city: "Vilanova Del Camí",
+            postcode: 98788,
+            country: "Spain"
+        },
+        contact: [+34784539825, "thespanishbeachhouse@gmail.com"],
+        isAvailable: true
+    },
+    */
 ]
 
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
@@ -141,3 +137,30 @@ button.addEventListener('click', () => addReviews(reviews))
 let currentLocation: [string, string, number] = ["Milan", "16:30", 21];
 const footer = document.querySelector("footer") as HTMLElement;
 footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}°<small>C</small>`;
+
+class MainProperty {
+    title: string
+    src: string
+    reviews: Review[]
+    constructor(title: string, src: string, reviews: Review[]) {
+        this.title = title
+        this.src = src
+        this.reviews = reviews
+    }
+}
+
+let yourMainProperty = new MainProperty(
+    "Spanish Beach House",
+    "./images/spanish-beach-house.png",
+    [{
+        name: 'Olive',
+        stars: 5,
+        loyaltyUser: LoyaltyUsers.GOLD_USER,
+        date: '12-04-2021'
+    }]
+)
+
+const mainImageContainer = document.querySelector('.main-image') as HTMLDivElement
+const image = document.createElement('img')
+image.setAttribute('src', yourMainProperty.src)
+mainImageContainer.appendChild(image)

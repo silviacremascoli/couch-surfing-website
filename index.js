@@ -33,7 +33,7 @@ const properties = [
     {
         image: "./images/dutch-flat.png",
         title: "Dutch Flat",
-        price: 34,
+        price: 30,
         location: {
             address: "541 Finn straat",
             city: "Grootwoude",
@@ -46,7 +46,7 @@ const properties = [
     {
         image: "./images/french-cottage.png",
         title: "French Cottage",
-        price: 23,
+        price: 25,
         location: {
             address: "7078 Marcel des Saussaies",
             city: "Claudienfort",
@@ -69,6 +69,21 @@ const properties = [
         contact: [+39063104903, "theitalianvilla@gmail.com"],
         isAvailable: true
     },
+    /*
+    {
+        image: "./images/spanish-beach-house.png",
+        title: "Spanish Beach House",
+        price: 45,
+        location: {
+            address: "Comandante Izarduy 57",
+            city: "Vilanova Del Camí",
+            postcode: 98788,
+            country: "Spain"
+        },
+        contact: [+34784539825, "thespanishbeachhouse@gmail.com"],
+        isAvailable: true
+    },
+    */
 ];
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
@@ -109,3 +124,20 @@ button.addEventListener('click', () => addReviews(reviews));
 let currentLocation = ["Milan", "16:30", 21];
 const footer = document.querySelector("footer");
 footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}°<small>C</small>`;
+class MainProperty {
+    constructor(title, src, reviews) {
+        this.title = title;
+        this.src = src;
+        this.reviews = reviews;
+    }
+}
+let yourMainProperty = new MainProperty("Spanish Beach House", "./images/spanish-beach-house.png", [{
+        name: 'Olive',
+        stars: 5,
+        loyaltyUser: LoyaltyUsers.GOLD_USER,
+        date: '12-04-2021'
+    }]);
+const mainImageContainer = document.querySelector('.main-image');
+const image = document.createElement('img');
+image.setAttribute('src', yourMainProperty.src);
+mainImageContainer.appendChild(image);
