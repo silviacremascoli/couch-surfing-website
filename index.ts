@@ -162,5 +162,6 @@ let yourMainProperty = new MainProperty(
 
 const mainImageContainer = document.querySelector('.main-image') as HTMLDivElement
 const image = document.createElement('img')
+image.classList.add('img-fluid')
 image.setAttribute('src', yourMainProperty.src)
 mainImageContainer.appendChild(image)

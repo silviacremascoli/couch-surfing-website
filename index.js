@@ -139,5 +139,6 @@ let yourMainProperty = new MainProperty("Spanish Beach House", "./images/spanish
     }]);
 const mainImageContainer = document.querySelector('.main-image');
 const image = document.createElement('img');
+image.classList.add('img-fluid');
 image.setAttribute('src', yourMainProperty.src);
 mainImageContainer.appendChild(image);
