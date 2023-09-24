@@ -1,5 +1,5 @@
 import {LoyaltyUsers, Permissions} from "./enums";
-import {Country} from "./types";
+import {Price, Country} from "./types";
 
 export interface Review {
     name: string;
@@ -11,7 +11,7 @@ export interface Review {
 export interface Property {
     image: string;
     title: string;
-    price: number;
+    price: Price;
     location: {
         address: string,
         city: string;

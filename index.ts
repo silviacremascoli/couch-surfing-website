@@ -75,21 +75,19 @@ const properties: Property[] = [
         contact: [+39063104903, "theitalianvilla@gmail.com"],
         isAvailable: true
     },
-    /*
     {
-        image: "./images/spanish-beach-house.png",
-        title: "Spanish Beach House",
-        price: 45,
+        image: "./images/malaysian-hotel.png",
+        title: "Malia Hotel",
+        price: 35,
         location: {
-            address: "Comandante Izarduy 57",
-            city: "Vilanova Del Camí",
-            postcode: 98788,
-            country: "Spain"
+            address: "Room 4",
+            city: "Malia",
+            postcode: 45334,
+            country: "Malaysia"
         },
-        contact: [+34784539825, "thespanishbeachhouse@gmail.com"],
-        isAvailable: true
-    },
-    */
+        contact: [+60349822083, "lee34@gmail.com"],
+        isAvailable: false
+    }
 ]
 
 totalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
