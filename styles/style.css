@@ -1,4 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #a9a9a9;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #f08080;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.container {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  border: 1px solid #f08080;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+  transition: all 300ms ease-in-out;
+}
+button:hover {
+  background: #f08080;
+  color: #ffffff;
+}
+
+.break {
+  height: 1px;
+  width: 70%;
+  background-color: #f08080;
+  margin-bottom: 20px;
+}
+
 .nav-bar {
   width: 100%;
   position: sticky;
@@ -17,22 +64,18 @@
 }
 .nav-bar .user-container {
   margin: 5px 30px 5px 20px;
+  font-size: 20px;
 }
 
 .properties {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-@media (max-width: 992px) {
-  .properties {
-    flex-direction: column;
-  }
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
   width: 300px;
-  margin: 15px 5px 5px 5px;
+  margin: 15px 5px 20px 5px;
   text-align: center;
   border-radius: 15px;
   padding: 12px;
@@ -44,59 +87,25 @@
 }
 
 .main-image img {
-  max-width: 800px;
-  max-height: 500px;
-  border-radius: 15px;
+  max-width: 100%;
+  border-radius: 10px;
   margin: 0 0 20px 0;
-}
-
-footer {
-  width: 100%;
-  margin-top: auto;
-  background-color: lightcoral;
-  text-align: center;
-  padding: 20px;
-  color: white;
-  font-size: 18px;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  font-family: "IBM Plex Sans", sans-serif;
-  color: darkgrey;
-}
-
-.container {
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-button {
-  border: 1px solid lightcoral;
-  border-radius: 15px;
-  padding: 5px 10px 5px 10px;
-}
-
-.review-card {
-  padding: 10px;
 }
 
 .reviews {
   display: flex;
   padding: 10px;
 }
-
-.break {
-  height: 1px;
-  width: 70%;
-  background-color: lightcoral;
-  margin-bottom: 20px;
+.reviews .review-card {
+  padding: 10px;
 }
 
-/*# sourceMappingURL=style.css.map */
+footer {
+  width: 100%;
+  margin-top: auto;
+  background-color: #f08080;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+}/*# sourceMappingURL=style.css.map */
