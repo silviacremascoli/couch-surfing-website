@@ -14,23 +14,26 @@ export function populateUser(isReturning, userName) {
     const returningUserDisplay = document.querySelector("#returning-user");
     const userNameDisplay = document.querySelector("#user");
     if (isReturning) {
-        returningUserDisplay.innerHTML = "back, ";
+        returningUserDisplay.innerHTML = " back, ";
+        userNameDisplay.innerHTML = `${userName}!`;
     }
-    userNameDisplay.innerHTML = `${userName}!`;
+    else {
+        returningUserDisplay.innerHTML = "!";
+    }
 }
 export function showDetails(value, element, price) {
     if (value) {
-        const priceDisplay = document.createElement('div');
-        priceDisplay.innerHTML = price.toString() + '€/night';
+        const priceDisplay = document.createElement("div");
+        priceDisplay.innerHTML = price.toString() + "€/night";
         element.appendChild(priceDisplay);
     }
 }
 export function makePlural(value) {
     if (value > 1 || value == 0) {
-        return 's';
+        return "s";
     }
     else
-        return '';
+        return "";
 }
 export function getTopTwoReviews(reviews) {
     // sorts the reviews array in descending order based on the stars property, so that the reviews with higher star ratings will come first in the sorted array
